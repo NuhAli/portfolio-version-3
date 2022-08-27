@@ -1,0 +1,49 @@
+.NavLink {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  padding-right: 4rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &:last-child {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    padding-right: 0;
+  }
+}
+
+.NavLink__hoverContainer {
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  display: flex;
+  height: auto;
+  width: 0;
+  height: 5px;
+  overflow: hidden;
+}
+
+.NavLink__hoverLine1 {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 10px;
+  background: linear-gradient(90deg, #c83200 0%, #ff8000 35%, #ff9912 75%, #ffd700 100%);
+  z-index: 10;
+}
+
+.NavLink__hoverLine2 {
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 10px;
+  background: rgb(2, 56, 110);
+  background: linear-gradient(90deg, rgba(2, 56, 110, 1) 0%, rgba(0, 73, 141, 1) 35%, rgba(0, 82, 162, 1) 100%);
+  z-index: 9;
+}
