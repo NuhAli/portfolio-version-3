@@ -1,0 +1,72 @@
+.Footer {
+    width: 100vw;
+    min-height: 250px;
+    max-height: fit-content;
+    background-color: #282C34;
+
+    &__container {
+        margin: 0 auto;
+        max-width: 1000px;
+        height: auto;
+    }
+
+    &__footerList {
+        list-style: none;
+        padding: 4rem 0 1rem 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &__footerLink {
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+
+        svg {
+            transition: all 0.2s ease;
+        }
+
+        &__twitter {
+            &:hover {
+                color: #1DA1F2
+            }
+        }
+
+        &__upwork {
+            &:hover {
+                color: #6fda44;
+            }
+        }
+
+        &__github {
+            &:hover {
+                color: #171515
+            }
+        }
+
+        &__linkedin {
+            &:hover {
+                color: #0072b1
+            }
+        }
+
+        svg {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    &__footerText {
+        width: 100%;
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+        p {
+            font-size: 1rem;
+            font-style: italic;
+        }
+    }
+}

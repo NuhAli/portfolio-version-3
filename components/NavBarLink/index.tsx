@@ -4,6 +4,7 @@ import { NavBarLinkProps } from "../../types/navBarLink";
 import { gsap, Power2 } from "gsap";
 import { CgDarkMode } from "react-icons/cg";
 import styles from "../../styles/NavBarLink.module.scss";
+import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 
 const NavBarLink = ({ label, icon, to }: NavBarLinkProps) => {
   const hoverLineRed = useRef(null);
@@ -48,12 +49,17 @@ const NavBarLink = ({ label, icon, to }: NavBarLinkProps) => {
     });
   };
 
+  const openAboutMe = () => {
+    aboutMeVisible$.next(true)
+  }
+
   return (
     <Link href={`/${to}`}>
       <li
         className={styles.NavLink}
         onMouseOver={mouseOver}
         onMouseOut={mouseOut}
+        onClick={openAboutMe}
       >
         {label && label}
         {icon && <CgDarkMode />}

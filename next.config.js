@@ -8,6 +8,7 @@ const nextConfig = {
     includePaths: [path.join(__dirname, 'styles')],
   },
 }
-const withTM = require('next-transpile-modules')(['gsap']);module.exports = withTM();
 
-module.exports = nextConfig
+const withTM = require('next-transpile-modules')(['gsap']);module.exports = withTM
+
+module.exports = [nextConfig]

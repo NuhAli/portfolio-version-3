@@ -11,7 +11,7 @@ export const data: Array<NavBarLinkProps> = [
   },
   {
     label: "Contact",
-    to: "#contact-me",
+    to: "",
   },
   {
     icon: true,

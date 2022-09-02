@@ -1,0 +1,208 @@
+.AboutMe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+
+    @media screen and (max-width: 1200px) {
+        min-height: auto;
+    }
+
+    &__container {
+        margin: 5% auto auto auto;
+        max-width: 1450px;
+        height: 80%;
+        display: flex;
+
+        @media screen and (max-width: 1200px) {
+            flex-direction: column-reverse;
+            max-width: 90%;
+            height: auto;
+        }
+    }
+
+    &__description {
+        position: relative;
+        height: 100%;
+        width: 50%;
+        background-color: #FAF9F6;
+        margin-top: 200%;
+        opacity: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 4rem 2rem;
+
+        @media screen and (max-width: 1200px) {
+            min-width: 100%;
+            min-height: auto;
+        }
+
+        h2 {
+            position: absolute;
+            top: 0;
+            right: -190px;
+            font-size: 8rem;
+            text-transform: uppercase;
+            color: rgba(24, 24, 24, 0.2);
+
+            @media screen and (max-width: 712px) {
+                display: none;
+            }
+        }
+
+        &__textArea {
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #242424;
+
+            p {
+                font-size: 1.3rem;
+                font-style: italic;
+                line-height: 35px;
+
+
+                @media screen and (max-width: 1400px) {
+                    font-size: 1.1rem;
+                }
+
+                @media screen and (max-width: 1255px) {
+                    font-size: 0.9rem;
+                }
+
+                @media screen and (max-width: 1110px) {
+                    font-size: 0.9rem;
+                }
+
+                @media screen and (max-width: 1080px) {
+                    font-size: 1.5vh
+                }
+            }
+        }
+
+        &__technology {
+            margin-top: 6rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 2.5rem;
+            background-color: rgba(24, 24, 24, 0.1);
+            padding: 1rem;
+            border-radius: 5px;
+            ;
+
+            svg {
+                cursor: pointer;
+                margin-bottom: 1.5rem;
+                margin-right: 1rem;
+            }
+
+            &__react {
+                position: relative;
+                color: #61DBFB !important;
+            }
+
+            &__js {
+                color: #f7df1e
+            }
+
+            &__ts {
+                color: #007ACC
+            }
+
+            &__styledComponents {
+                color: purple
+            }
+
+            &__sass {
+                color: pink
+            }
+
+            &__express {
+                color: #303030
+            }
+
+            &__node {
+                color: #68A063
+            }
+
+            &__mySql {
+                color: #00758F
+            }
+
+            &__jest {
+                color: #8b5959
+            }
+
+            &__aws {
+                color: #FF9900;
+            }
+        }
+    }
+
+    &__contact {
+        position: relative;
+        height: 100%;
+        width: 50%;
+        background: linear-gradient(180deg, #1d1f2f, #1d1e2c, #1d1e29, #1c1d26, #1b1c24, #1b1b21, #19191e, #18181b);
+        margin-top: -200%;
+        padding: 8rem 2rem;
+        opacity: 0;
+        overflow: hidden;
+
+        @media screen and (max-width: 1200px) {
+            min-width: 100%;
+            min-height: auto;
+        }
+
+        h2 {
+            position: absolute;
+            bottom: 0px;
+            right: 20px;
+            font-size: 8rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.1);
+
+            @media screen and (max-width: 1200px) {
+                bottom: -15px;
+                left: 20px
+            }
+
+            @media screen and (max-width: 712px) {
+                display: none;
+            }
+        }
+
+        svg {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            font-size: 3rem;
+            cursor: pointer;
+        }
+
+        &__textArea {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: #fafafa;
+
+            h3 {
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 2rem;
+                
+            }
+        }
+
+    }
+}

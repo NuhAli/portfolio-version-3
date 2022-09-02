@@ -1,0 +1,34 @@
+.Main {
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+    background-color: #f3f3f3;
+
+    &__container {
+        position: relative;
+        margin: 0 auto;
+        padding: 10rem 0 3rem 0;
+        max-width: 1500px;
+        height: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__textContainer {
+        margin-bottom: 5rem;
+        h3 {
+            font-size: 3rem;
+            font-weight: bold;
+            font-style: italic;
+            text-transform: capitalize;
+            color: #242424;
+
+            @media  screen and (max-width: 620px) {
+                font-size: 3rem;
+                text-align: center;
+            }
+        }
+    }
+}
