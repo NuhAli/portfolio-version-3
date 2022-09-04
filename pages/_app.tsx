@@ -1,5 +1,4 @@
 import '../styles/globals.css'
-import "../styles/Header.scss"
 import type { AppProps } from 'next/app'
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'

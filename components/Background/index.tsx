@@ -22,9 +22,8 @@ export default function Background({ width, height, children }: BackgroundProps)
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            color: 0xffffff,
-            backgroundColor: "#2E343C",
-            points: 9.00
+            color: 0xe6e2e3,
+            backgroundColor: 0x1d1a2d
           })
         );
 

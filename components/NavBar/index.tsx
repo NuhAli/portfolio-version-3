@@ -1,8 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import styles from "./NavBar.module.scss";
-import { CgDarkMode } from "react-icons/cg";
+import React, { MutableRefObject, useEffect, useRef, useState } from "react";
+import styles from "../../styles/NavBar.module.scss";
 import { gsap, Power2 } from "gsap";
-import { CSSPlugin } from "gsap/CSSPlugin";
 import { data } from "./navBarData";
 import { projectNavData } from "./projectNavData";
 import NavBarLink from "../NavBarLink";
@@ -11,28 +9,30 @@ import sideBarVisible$ from "../../observables/sideBarVisible$";
 
 interface NavBarProps {
   type: "home" | "project";
+  target: MutableRefObject<null>;
 }
 
-const NavBar = ({ type }: NavBarProps) => {
+const NavBar = ({ type, target }: NavBarProps) => {
   const [theme, setTheme] = useState("dark");
   const [clicked, setClicked] = useState(false);
   const [sideBarVisible, setSidebarVsibile] = useState(false);
-
-  const navRaf = useRef(null);
   const sideBarRef = useRef(null);
+  const navRef = useRef(null)
 
   useEffect(() => {
     sideBarVisible$.subscribe((visible) => {
       setSidebarVsibile(visible);
     });
 
-    gsap.to(navRaf.current, {
+    gsap.to(navRef.current, {
       css: { opacity: 1, top: 0 },
       duration: 0.5,
       delay: 0.5,
       ease: Power2.easeInOut,
     });
+
   }, []);
+
 
   const renderNavLinks = () => {
     return data.map((item, index) => {
@@ -62,10 +62,10 @@ const NavBar = ({ type }: NavBarProps) => {
 
   return (
     <nav
-      className={type === "home" ? styles.NavBar : styles.NavBar__projects}
-      ref={navRaf}
+      className={type === "home" ? styles.NavBar : styles.NavBar__Project}
+      ref={navRef}
     >
-      <div className={styles.NavBar__container}>
+       <div className={styles.NavBar__container}>
         <ul className={styles.NavBar__links}>
           {type === "home" ? renderNavLinks() : renderProjectLinks()}
         </ul>

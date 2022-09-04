@@ -1,5 +1,11 @@
+import Link from "next/link";
 import React from "react";
-import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import {
+  FaArrowAltCircleUp,
+  FaGithub,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import styles from "../../styles/Footer.module.scss";
 
@@ -7,6 +13,11 @@ const Footer = () => {
   return (
     <footer className={styles.Footer}>
       <div className={styles.Footer__container}>
+        <Link href={""} scroll={true}>
+          <div className={styles.Footer__container__icon}>
+            <FaArrowAltCircleUp />
+          </div>
+        </Link>
         <ul className={styles.Footer__footerList}>
           <div className={styles.Footer__footerLink}>
             <FaTwitter className={styles.Footer__footerLink__twitter} />

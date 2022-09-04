@@ -10,9 +10,7 @@ const Projects = () => {
         <div className={styles.Main__textContainer}>
             <h3>My Latest Projects</h3>
         </div>
-        <Project />
-        <Project />
-        <Project />
+        <div className={styles.Main__borderMiddle}/>
         <Project />
       </div>
     </main>

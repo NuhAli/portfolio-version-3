@@ -5,7 +5,8 @@
     margin-bottom: 10rem;
     border-radius: 5px;
     cursor: pointer;
-
+    overflow: hidden;
+    
     &:last-child {
         margin-bottom: 0;
     }
@@ -87,7 +88,6 @@
         p {
             font-size: 1.1rem;
             font-style: italic;
-            text-transform: capitalize;
             margin-bottom: 1rem;
 
             @media screen and (max-width: 1000px) {

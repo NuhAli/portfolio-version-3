@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap, Power2 } from "gsap";
-import styles from "./Header.module.scss";
+import styles from "../../styles/Header.module.scss";
 import Background from "../Background";
 import Sidebar from "../Sidebar";
 import AboutMe from "../AboutMe";
@@ -22,6 +22,7 @@ const Header = (): JSX.Element => {
   const buttonRef = useRef(null);
   const buttonIconRef = useRef(null);
   const arrowIconRef = useRef(null);
+  const navRef = useRef(null);
 
   const router = useRouter()
 
@@ -113,7 +114,7 @@ const Header = (): JSX.Element => {
       <div className={styles.Header__background}>
         <Background height={1080} width={1920} />
       </div>
-      {!aboutMeVisible && <NavBar type="home" />}
+      {!aboutMeVisible && <NavBar type="home" target={navRef} />}
       <div className={styles.Header__wrapper}>
         <div className={styles.Header__title}>
           <div className={styles.innerCard} ref={titleCardRef} />
@@ -130,10 +131,10 @@ const Header = (): JSX.Element => {
       </div>
       {!aboutMeVisible && (
         <div className={styles.Header__links} ref={iconsRef}>
-          <FaTwitter />
-          <FaLinkedinIn />
-          <FaGithub />
-          <SiUpwork />
+          <FaTwitter className={styles.Header__links__twitter} />
+          <FaLinkedinIn className={styles.Header__links__linkedin} />
+          <FaGithub className={styles.Header__links__github} />
+          <SiUpwork className={styles.Header__links__upwork} />
         </div>
       )}
       <div

@@ -1,22 +1,64 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
+import { gsap, Power2 } from "gsap";
+import React, { useEffect, useRef, useState } from "react";
+import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 import styles from "../../styles/ProjectHero.module.scss";
+import AboutMe from "../AboutMe";
 import NavBar from "../NavBar";
 
 const ProjectHero = () => {
+  const [aboutMeVisible, setAboutMeVisible] = useState(false);
+  const projectNavRef = useRef(null);
+  const titelRef = useRef(null);
+  const subTitleRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  useEffect(() => {
+    aboutMeVisible$.subscribe((status) => {
+      setAboutMeVisible(aboutMeVisible);
+    });
+    gsap.to(titelRef.current, {
+      css: { width: "0%" },
+      duration: 0.8,
+      ease: Power2.easeInOut,
+    });
+    gsap.to(subTitleRef.current, {
+      css: { width: "0%" },
+      delay: 0.1,
+      duration: 0.8,
+      ease: Power2.easeInOut,
+    });
+    gsap.to(descriptionRef.current, {
+      css: { opacity: 1, bottom: 0 },
+      delay: 0.7,
+      duration: 0.5,
+      ease: Power2.easeInOut,
+    });
+  }, []);
+
   return (
     <header className={styles.ProjectHero}>
+      {aboutMeVisible && <AboutMe />}
       <img src="/image-hero.webp" alt="project-hero" />
       <div className={styles.ProjectHero__container}>
-        <NavBar type="project" />
         <div className={styles.ProjectHero__textContainer}>
+          <NavBar type="project" target={projectNavRef} />
           <div>
-            <h1>Audiophile e-commerce website</h1>
-            <h2>A full stack React and Express application</h2>
+            <div className={styles.ProjectHero__textContainer__title}>
+              <h1>Audiophile e-commerce website</h1>
+              <div ref={titelRef} />
+            </div>
+            <div className={styles.ProjectHero__textContainer__subTitle}>
+              <h2>A full stack React and Express application</h2>
+              <div ref={subTitleRef} />
+            </div>
           </div>
-          <div className={styles.ProjectHero__projectDescription}>
+          <div
+            className={styles.ProjectHero__projectDescription}
+            ref={descriptionRef}
+          >
             <p>
-              <span>Role</span> Frontend Develoepr/Backend Developer
+              <span>Role</span> Frontend Develoepr
             </p>
             <p>
               <span>Context</span> Frontend Mentor Challenge

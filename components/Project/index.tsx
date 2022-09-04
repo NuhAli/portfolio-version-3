@@ -1,12 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useMemo, useRef } from "react";
 import styles from "../../styles/Project.module.scss";
-import projectImage from "../../public/image-hero.webp";
-import Image from "next/image";
 import { gsap, Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
-import NavBar from "../NavBar";
 
 const Project = () => {
   const initalCardRef = useRef(null);
@@ -14,6 +11,7 @@ const Project = () => {
   const textRef = useRef(null);
   const numberRef = useRef(null);
   const buttonRef = useRef(null);
+  const imageRef = useRef(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -32,8 +30,8 @@ const Project = () => {
 
   const onMouseOver = () => {
     gsap.to(overlayRef.current, { css: { width: "100%" }, duration: 0.3 });
-    gsap.to(textRef.current, {
-      scale: 1.02,
+    gsap.to(imageRef.current, {
+      scale: 1.1,
       duration: 0.1,
     });
     gsap.to(numberRef.current, {
@@ -44,7 +42,10 @@ const Project = () => {
 
   const onMouseOut = () => {
     gsap.to(overlayRef.current, { css: { width: "0%" }, duration: 0.3 });
-    gsap.to(textRef.current, { scale: 1, duration: 0.1 });
+    gsap.to(imageRef.current, {
+      scale: 1,
+      duration: 0.1,
+    });
     gsap.to(numberRef.current, {
       css: { opacity: 0, bottom: 50, color: "white" },
       duration: 0.1,
@@ -62,6 +63,7 @@ const Project = () => {
           className={styles.Project__image}
           alt={"Project image"}
           src={"/image-hero.webp"}
+          ref={imageRef}
         />
       </div>
       <div className={styles.Project__projectNumber}>
@@ -70,7 +72,7 @@ const Project = () => {
       <div className={styles.Project__textContainer} ref={textRef}>
         <h3>Audiophile e-commerce website</h3>
         <p>A fullstack React and Express application</p>
-        <Link href={"/project"} >
+        <Link href={"/project"} scroll={false} >
           <button ref={buttonRef}>See Project</button>
         </Link>
       </div>

@@ -2,8 +2,8 @@
   position: relative;
   font-size: 1.5rem;
   font-weight: bolder;
-  padding-right: 4rem;
-  color: rgba(255, 255, 255, 0.5);
+  margin-right: 4rem;
+  color: rgba(255, 255, 255, 1);
   cursor: pointer;
 
   &:hover {
@@ -11,10 +11,7 @@
   }
 
   &:last-child {
-    width: 150px;
-    display: flex;
-    justify-content: center;
-    padding-right: 0;
+    margin-right: 0;
   }
 }
 

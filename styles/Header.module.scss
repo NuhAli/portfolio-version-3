@@ -1,6 +1,6 @@
 .Header {
   position: relative;
-  background-color: #2E343C;
+  background-color: #1d1a2d;
   min-height: 100vh;
   max-height: auto;
   width: 100vw;
@@ -8,7 +8,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  overflow-x: hidden;
+  overflow: hidden;
 
   &__background {
     position: absolute;
@@ -124,16 +124,19 @@
 
     button {
       position: relative;
-      background: linear-gradient(270deg, #f06449, #ef3636);
-      padding: 1rem 2rem;
-      border: none;
-      text-transform: capitalize;
+      margin: 0 auto;
+      padding: 0.8rem 2.3rem;
       font-size: 2rem;
-      font-weight: bold;
+      letter-spacing: 1px;
+      background-color: transparent;
+      border: 2px solid white;
+      transition: all 0.3s ease;
       cursor: pointer;
-      transition: 0.8ms all ease-in-out;
-      letter-spacing: 2px;
-      border-radius: 5px;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
 
       span {
         position: absolute;
@@ -190,14 +193,39 @@
 
     svg {
       font-size: 4rem;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 1);
       cursor: pointer;
 
       &:hover {
-        color: rgba(255, 255, 255, 0.9)
+        color: rgba(255, 255, 255, 1)
       }
-
     }
+
+    &__twitter {
+      &:hover {
+        fill: #1DA1F2
+      }
+    }
+
+    &__upwork {
+      &:hover {
+        fill: #6fda44;
+      }
+    }
+
+    &__github {
+      &:hover {
+        fill: #171515
+      }
+    }
+
+    &__linkedin {
+      &:hover {
+        fill: #0072b1
+      }
+    }
+
+
 
     @media screen and (max-width: 1600px) {
       justify-content: space-around;
@@ -245,6 +273,7 @@
     bottom: -30px;
     right: 0;
     left: 0;
+    color: white;
     width: 50px;
     height: 50px;
     position: absolute;
