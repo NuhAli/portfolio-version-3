@@ -8,15 +8,21 @@ import Projects from '../components/Projects';
 import Footer from '../components/Footer';
 import aboutMeVisible$ from '../observables/aboutMeVisible$';
 import AboutMe from '../components/AboutMe';
+import sideBarVisible$ from '../observables/sideBarVisible$';
+import Sidebar from '../components/Sidebar';
 
 const Home: NextPage = () => {
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
+  const [sidebarVisibile, setSidebarVisible] = useState(false);
     const pageRef = useRef(null)
 
     useEffect(() => {
       aboutMeVisible$.subscribe((status) => {
-        setAboutMeVisible(aboutMeVisible);
+        setAboutMeVisible(status);
       });
+      sideBarVisible$.subscribe((status) => {
+        setSidebarVisible(status)
+      })
         gsap.to(pageRef.current,{duration: 0, css: {visibility: 'visible'}})
     },[])
 
@@ -27,6 +33,7 @@ const Home: NextPage = () => {
         </Head>
       <Header />
       {aboutMeVisible && <AboutMe />}
+      <Sidebar />
       <Projects />
       <Footer />
     </div>

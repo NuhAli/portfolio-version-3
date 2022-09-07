@@ -28,7 +28,7 @@
         height: 100%;
         width: 50%;
         background-color: #FAF9F6;
-        margin-top: 200%;
+        margin-top: 200vh;
         opacity: 0;
         overflow: hidden;
         display: flex;
@@ -153,7 +153,7 @@
         height: 100%;
         width: 50%;
         background: linear-gradient(180deg, #1d1f2f, #1d1e2c, #1d1e29, #1c1d26, #1b1c24, #1b1b21, #19191e, #18181b);
-        margin-top: -200%;
+        margin-top: -200vh;
         padding: 8rem 2rem;
         opacity: 0;
         overflow: hidden;
@@ -204,5 +204,8 @@
             }
         }
 
+        textarea {
+            resize: none;
+        }
     }
 }

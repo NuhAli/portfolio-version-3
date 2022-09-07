@@ -67,7 +67,7 @@ const NavBar = ({ type, target }: NavBarProps) => {
     >
        <div className={styles.NavBar__container}>
         <ul className={styles.NavBar__links}>
-          {type === "home" ? renderNavLinks() : renderProjectLinks()}
+          {renderNavLinks()}
         </ul>
         <div className={styles.NavBar__sideMenuIcons}>
           {clicked ? (

@@ -57,8 +57,7 @@ const NavBarLink = ({ label, icon, to }: NavBarLinkProps) => {
   };
 
   const openAboutMe = () => {
-    setAboutMeVisible(true)
-    console.log(aboutMeVisible$.value)
+    aboutMeVisible$.next(true)
   };
 
   const renderLink = () => {
