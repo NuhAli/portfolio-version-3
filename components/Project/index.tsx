@@ -72,7 +72,7 @@ const Project = () => {
       <div className={styles.Project__textContainer} ref={textRef}>
         <h3>Audiophile e-commerce website</h3>
         <p>A fullstack React and Express application</p>
-        <Link href={"/project"} scroll={false} >
+        <Link href={"project"} scroll={false} >
           <button ref={buttonRef}>See Project</button>
         </Link>
       </div>

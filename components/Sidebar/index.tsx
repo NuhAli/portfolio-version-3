@@ -65,21 +65,6 @@ const Sidebar = () => {
     });
   };
 
-  const renderProjectLinks = () => {
-    return projectNavData.map((item, index) => {
-      if (item.label) {
-        return (
-          <Link key={index} href={`/${item.to}`}>
-            <li className={styles.SidebarPage__link}>{item.label}</li>
-          </Link>
-        );
-      }
-      return;
-    });
-  };
-
-
-
   return (
     <>
       <div className={styles.Sidebar_accent} ref={sideBarAccentRef} />

@@ -44,7 +44,7 @@
 
         h2 {
             position: absolute;
-            top: 0;
+            top: 20px;
             right: -190px;
             font-size: 8rem;
             text-transform: uppercase;
@@ -203,11 +203,6 @@
                 
             }
         }
-
-        input {
-            width: 100%;
-        }
-
         textarea {
             resize: none;
         }

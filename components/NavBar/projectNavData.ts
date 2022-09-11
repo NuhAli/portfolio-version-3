@@ -7,7 +7,7 @@ export const projectNavData: Array<NavBarLinkProps> = [
   },
   {
     label: "All Projects",
-    to: "/#projects",
+    to: "#projects",
   },
   {
     label: "Contact",

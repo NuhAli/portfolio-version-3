@@ -33,7 +33,7 @@ const Home: NextPage = () => {
         </Head>
       <Header />
       <Sidebar />
-      {aboutMeVisible && <AboutMe />}
+      <Sidebar />
       <Sidebar />
       <Projects />
       <Footer />

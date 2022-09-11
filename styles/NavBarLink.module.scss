@@ -31,7 +31,8 @@
   left: 0;
   width: 150px;
   height: 10px;
-  background: linear-gradient(90deg, #c83200 0%, #ff8000 35%, #ff9912 75%, #ffd700 100%);
+  background: rgb(2, 56, 110);
+  background: linear-gradient(90deg, rgba(2, 56, 110, 1) 0%, rgba(0, 73, 141, 1) 35%, rgba(0, 82, 162, 1) 100%);
   z-index: 10;
 }
 
@@ -40,7 +41,6 @@
   left: 0;
   width: 150px;
   height: 10px;
-  background: rgb(2, 56, 110);
-  background: linear-gradient(90deg, rgba(2, 56, 110, 1) 0%, rgba(0, 73, 141, 1) 35%, rgba(0, 82, 162, 1) 100%);
+  background: linear-gradient(270deg,#f06449,#ef3636);
   z-index: 9;
 }

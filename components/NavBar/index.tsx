@@ -40,7 +40,6 @@ const NavBar = ({ type, target }: NavBarProps) => {
         <NavBarLink
           key={index}
           label={item.label}
-          icon={item.icon}
           to={item.to}
         />
       );
@@ -53,7 +52,6 @@ const NavBar = ({ type, target }: NavBarProps) => {
         <NavBarLink
           key={index}
           label={item.label}
-          icon={item.icon}
           to={item.to}
         />
       );

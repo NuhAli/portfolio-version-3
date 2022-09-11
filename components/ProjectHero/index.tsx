@@ -15,7 +15,7 @@ const ProjectHero = () => {
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
-      setAboutMeVisible(aboutMeVisible);
+      setAboutMeVisible(status);
     });
     gsap.to(titelRef.current, {
       css: { width: "0%" },
@@ -37,7 +37,7 @@ const ProjectHero = () => {
   }, []);
 
   return (
-    <header className={styles.ProjectHero}>
+    <header className={styles.ProjectHero} id={"audiophile"}>
       {aboutMeVisible && <AboutMe />}
       <img src="/image-hero.webp" alt="project-hero" />
       <div className={styles.ProjectHero__container}>

@@ -1,14 +1,18 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import {useRouter} from "next/router";
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
-import { useEffect } from 'react'
+import {useEffect, useState} from 'react'
 import PageTransition from '../components/PageTransition'
+import {pageTransition$} from "../observables/pageTransition$";
 
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  
+
+  const router = useRouter()
+
   useEffect(() => {
     const threeScript = document.createElement("script");
     threeScript.setAttribute("id", "threeScript");
@@ -23,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
     };
   }, []);
-  
+
   return (
     <main style={{position: "relative"}}>
       <PageTransition />
