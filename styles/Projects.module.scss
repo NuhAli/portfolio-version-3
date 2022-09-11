@@ -3,7 +3,7 @@
     min-height: 100vh;
     height: auto;
     background-color: #f3f3f3;
-
+    z-index: 100000;
     &__container {
         position: relative;
         margin: 0 auto;

@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap, Power2 } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "../../styles/Header.module.scss";
 import Background from "../Background";
 import Sidebar from "../Sidebar";
@@ -27,30 +28,33 @@ const Header = (): JSX.Element => {
   const router = useRouter()
 
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     aboutMeVisible$.subscribe((status) => {
       setAboutMeVisible(aboutMeVisible);
     });
     gsap.to(titleCardRef.current, {
       css: { width: "0%" },
+      delay: 4,
       duration: 0.8,
       ease: Power2.easeInOut,
     });
     gsap.to(subTitleCardRef.current, {
       css: { width: "0%" },
       duration: 0.8,
-      delay: 0.1,
+      delay: 3,
       ease: Power2.easeInOut,
     });
     gsap.to(buttonRef.current, {
       css: { width: "0%" },
       duration: 0.8,
-      delay: 0.2,
+      delay: 3,
       ease: Power2.easeInOut,
     });
     gsap.to(iconsRef.current, {
       opacity: 1,
       duration: 1,
-      delay: 0.5,
+      delay: 3,
       ease: Power2.easeInOut,
     });
   }, []);

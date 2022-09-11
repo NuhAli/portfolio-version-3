@@ -32,6 +32,7 @@ const Home: NextPage = () => {
             <title>Nuh Mohamed Ali | Portfolio v3</title>
         </Head>
       <Header />
+      <Sidebar />
       {aboutMeVisible && <AboutMe />}
       <Sidebar />
       <Projects />

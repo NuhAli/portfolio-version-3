@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import { gsap } from 'gsap'
 import { CSSPlugin } from 'gsap/CSSPlugin'
 import { useEffect } from 'react'
+import PageTransition from '../components/PageTransition'
 
 
 
@@ -23,7 +24,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
   
-  return <Component {...pageProps} />
+  return (
+    <main style={{position: "relative"}}>
+      <PageTransition />
+      <Component {...pageProps} />
+    </main>
+  )
 }
 
 export default MyApp
