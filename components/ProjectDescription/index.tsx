@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { gsap,Power2 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "../../styles/ProjectDescription.module.scss";
 import Image from "next/image";
@@ -16,29 +16,34 @@ const ProjectDescription = () => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(titleRef.current, {
       css: { top: 0, opacity: 1 },
-      duration: 0.2,
+      duration: 0.8,
       scrollTrigger: descriptionRef.current,
+      ease: Power2.easeInOut
     });
     gsap.to(descriptionRef.current, {
       css: { bottom: 0, opacity: 1 },
-      duration: 0.2,
+      duration: 0.8,
       scrollTrigger: descriptionRef.current,
+      ease: Power2.easeInOut
     });
     gsap.to(colorAreaRef.current, {
       css: { bottom: 0, opacity: 1 },
-      delay: 0.5,
-      duration: 0.5,
+      delay: 0.3,
+      duration: 0.8,
       scrollTrigger: colorAreaRef.current,
+      ease: Power2.easeInOut
     });
     gsap.to(designTitleRef.current, {
       css: { top: 0, opacity: 1 },
-      duration: 0.2,
+      duration: 0.8,
       scrollTrigger: designImageRef.current,
+      ease: Power2.easeInOut
     });
     gsap.to(designImageRef.current, {
       css: { bottom: 0, opacity: 1 },
-      duration: 0.2,
+      duration: 0.8,
       scrollTrigger: designImageRef.current,
+      ease: Power2.easeInOut
     });
   }, []);
 
@@ -64,10 +69,10 @@ const ProjectDescription = () => {
               websites that are viewable on all devices.
               <br />
               <br />
-              One of the really exciting parts of this project was making it a
-              full stack application using a <span>Express</span> server and{" "}
-              <span></span> database, I also used <span>Styled Components</span>{" "}
-              as my main styling tool for the first time on any of my projects.
+              Some of the really exciting parts of this project was making it a
+              full stack application using an <span>Express</span> server and
+              <span> MySQL</span> database, I also used <span>Styled Components</span>
+              as my main styling tool for the first time in any of my projects.
             </p>
           </div>
           <div className={styles.ProjectDescription__description__image}>

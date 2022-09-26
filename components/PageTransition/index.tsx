@@ -1,13 +1,10 @@
 import React, {useEffect, useRef, useState} from 'react'
-import { useRouter } from 'next/router';
 import { gsap, Power4 } from "gsap";
 import styles from "../../styles/PageTransition.module.scss"
-import {pageTransition$} from "../../observables/pageTransition$";
+import router from 'next/router';
 
 
 export const PageTransition = () => {
-    const [pageChanging,setPageChanging] = useState(false)
-    const router = useRouter()
     const overlayRef = useRef(null)
     const underlayRef = useRef(null)
 
@@ -24,19 +21,13 @@ export const PageTransition = () => {
     }
 
     useEffect(() => {
-        pageReveal()
-        pageTransition$.subscribe(status => setPageChanging(status))
+      pageReveal()
+      return () => {
+        router.events.on("routeChangeStart",() => {
+          pageCover()
+        })
+      }
     },[])
-
-
-    useEffect(() => {
-        router.events.on('routeChangeStart', pageCover);
-        router.events.on('routeChangeComplete', pageReveal);
-        return () => {
-            router.events.off('routeChangeStart', pageReveal);
-            router.events.off('routeChangeComplete', pageCover);
-        };
-    },[router])
 
   return (
     <>

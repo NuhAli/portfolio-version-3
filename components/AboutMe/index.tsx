@@ -22,7 +22,7 @@ const AboutMe = () => {
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
-      setVisible(visible);
+      setVisible(status);
     });
     gsap.to(aboutRef.current, {
       css: { marginTop: 0, opacity: 1 },

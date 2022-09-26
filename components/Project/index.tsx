@@ -4,8 +4,13 @@ import styles from "../../styles/Project.module.scss";
 import { gsap, Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import { ProjectType } from "../../types/project";
 
-const Project = () => {
+interface IProjectProps {
+  data: ProjectType
+}
+
+const Project = ({data}:IProjectProps) => {
   const initalCardRef = useRef(null);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
@@ -62,17 +67,17 @@ const Project = () => {
         <img
           className={styles.Project__image}
           alt={"Project image"}
-          src={"/image-hero.webp"}
+          src={data.projectImage}
           ref={imageRef}
         />
       </div>
       <div className={styles.Project__projectNumber}>
-        <h3 ref={numberRef}>01</h3>
+        <h3 ref={numberRef}>{data.id}</h3>
       </div>
       <div className={styles.Project__textContainer} ref={textRef}>
-        <h3>Audiophile e-commerce website</h3>
-        <p>A fullstack React and Express application</p>
-        <Link href={"project"} scroll={false} >
+        <h3>{data.title}</h3>
+        <p>{data.subTitle}</p>
+        <Link href={"project"}>
           <button ref={buttonRef}>See Project</button>
         </Link>
       </div>

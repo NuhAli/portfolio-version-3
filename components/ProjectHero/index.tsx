@@ -3,7 +3,6 @@ import { gsap, Power2 } from "gsap";
 import React, { useEffect, useRef, useState } from "react";
 import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 import styles from "../../styles/ProjectHero.module.scss";
-import AboutMe from "../AboutMe";
 import NavBar from "../NavBar";
 
 const ProjectHero = () => {
@@ -19,26 +18,26 @@ const ProjectHero = () => {
     });
     gsap.to(titelRef.current, {
       css: { width: "0%" },
-      duration: 0.8,
+      duration: 1,
+      delay: 1.2,
       ease: Power2.easeInOut,
     });
     gsap.to(subTitleRef.current, {
       css: { width: "0%" },
-      delay: 0.1,
-      duration: 0.8,
+      duration: 1,
+      delay: 1.2,
       ease: Power2.easeInOut,
     });
     gsap.to(descriptionRef.current, {
       css: { opacity: 1, bottom: 0 },
-      delay: 0.7,
-      duration: 0.5,
+      duration: 1,
+      delay: 1.2,
       ease: Power2.easeInOut,
     });
   }, []);
 
   return (
     <header className={styles.ProjectHero} id={"audiophile"}>
-      {aboutMeVisible && <AboutMe />}
       <img src="/image-hero.webp" alt="project-hero" />
       <div className={styles.ProjectHero__container}>
         <div className={styles.ProjectHero__textContainer}>

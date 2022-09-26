@@ -18,6 +18,7 @@ const Footer = () => {
             <FaArrowAltCircleUp />
           </div>
         </Link>
+        <p>Back to the top</p>
         <ul className={styles.Footer__footerList}>
           <div className={styles.Footer__footerLink}>
             <FaTwitter className={styles.Footer__footerLink__twitter} />
@@ -37,7 +38,7 @@ const Footer = () => {
           </div>
         </ul>
         <div className={styles.Footer__footerText}>
-          <p>Portfolio Project | Nuh Mohamed Ali</p>
+          <p>Portfolio Website | Nuh Mohamed Ali</p>
         </div>
       </div>
     </footer>

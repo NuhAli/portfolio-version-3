@@ -6,6 +6,7 @@ import { projectNavData } from "./projectNavData";
 import NavBarLink from "../NavBarLink";
 import { FaTimes, FaBars } from "react-icons/fa";
 import sideBarVisible$ from "../../observables/sideBarVisible$";
+import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 
 interface NavBarProps {
   type: "home" | "project";
@@ -13,41 +14,30 @@ interface NavBarProps {
 }
 
 const NavBar = ({ type, target }: NavBarProps) => {
-  const [theme, setTheme] = useState("dark");
+  const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [sideBarVisible, setSidebarVsibile] = useState(false);
   const sideBarRef = useRef(null);
   const navRef = useRef(null)
 
   useEffect(() => {
+    aboutMeVisible$.subscribe((status) => {
+      setAboutMeVisible(status);
+    });
     sideBarVisible$.subscribe((visible) => {
       setSidebarVsibile(visible);
     });
 
     gsap.to(navRef.current, {
       css: { opacity: 1, top: 0 },
-      duration: 0.5,
-      delay: 0.5,
+      duration: 0.8,
+      delay: 1.1,
       ease: Power2.easeInOut,
     });
-
   }, []);
-
 
   const renderNavLinks = () => {
     return data.map((item, index) => {
-      return (
-        <NavBarLink
-          key={index}
-          label={item.label}
-          to={item.to}
-        />
-      );
-    });
-  };
-
-  const renderProjectLinks = () => {
-    return projectNavData.map((item, index) => {
       return (
         <NavBarLink
           key={index}

@@ -1,23 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
-import { HiArrowNarrowRight } from "react-icons/hi";
 import NavBar from "../NavBar";
 import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { gsap, Power2 } from "gsap";
+import { gsap, Power2, Power4 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "../../styles/Header.module.scss";
 import Background from "../Background";
 import Sidebar from "../Sidebar";
-import AboutMe from "../AboutMe";
+import { useRouter } from "next/router";
 import aboutMeVisible$ from "../../observables/aboutMeVisible$";
-import Link from "next/link";
-import { useRouter } from 'next/router';
 
 const Header = (): JSX.Element => {
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
-  const timeline = useMemo(() => gsap.timeline({ paused: true }), []);
   const iconsRef = useRef(null);
+  const textContainer = useRef(null);
   const titleCardRef = useRef(null);
   const subTitleCardRef = useRef(null);
   const buttonRef = useRef(null);
@@ -25,67 +22,29 @@ const Header = (): JSX.Element => {
   const arrowIconRef = useRef(null);
   const navRef = useRef(null);
 
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
+    aboutMeVisible$.subscribe((status) => {
+      setAboutMeVisible(status);
+    });
+
     gsap.registerPlugin(ScrollTrigger);
 
-    aboutMeVisible$.subscribe((status) => {
-      setAboutMeVisible(aboutMeVisible);
-    });
-    gsap.to(titleCardRef.current, {
-      css: { width: "0%" },
-      delay: 4,
+    gsap.to(textContainer.current, {
+      css: { top: 0, opacity: 1 },
       duration: 0.8,
-      ease: Power2.easeInOut,
+      delay: 1.1,
+      ease: Power4.easeInOut,
     });
-    gsap.to(subTitleCardRef.current, {
-      css: { width: "0%" },
-      duration: 0.8,
-      delay: 3,
-      ease: Power2.easeInOut,
-    });
-    gsap.to(buttonRef.current, {
-      css: { width: "0%" },
-      duration: 0.8,
-      delay: 3,
-      ease: Power2.easeInOut,
-    });
+
     gsap.to(iconsRef.current, {
-      opacity: 1,
-      duration: 1,
-      delay: 3,
+      css: { right: "2rem", opacity: 1 },
+      duration: 0.8,
+      delay: 1.1,
       ease: Power2.easeInOut,
     });
   }, []);
-
-  useEffect(() => {
-    if (!aboutMeVisible) {
-      gsap.to(titleCardRef.current, {
-        css: { width: "0%" },
-        duration: 0.8,
-        ease: Power2.easeInOut,
-      });
-      gsap.to(subTitleCardRef.current, {
-        css: { width: "0%" },
-        duration: 0.8,
-        delay: 0.1,
-        ease: Power2.easeInOut,
-      });
-      gsap.to(buttonRef.current, {
-        css: { width: "0%" },
-        duration: 0.8,
-        delay: 0.2,
-        ease: Power2.easeInOut,
-      });
-      gsap.to(iconsRef.current, {
-        opacity: 1,
-        duration: 1,
-        delay: 0.5,
-        ease: Power2.easeInOut,
-      });
-    }
-  }, [aboutMeVisible]);
 
   const bottomArrowMouseOver = () => {
     gsap.to(arrowIconRef.current, {
@@ -104,22 +63,21 @@ const Header = (): JSX.Element => {
   };
 
   const openAboutMe = () => {
-    setAboutMeVisible(true);
+    aboutMeVisible$.next(true);
   };
 
   const navigateTo = () => {
-    router.push("/#projects")
-  }
+    router.push("/#projects");
+  };
 
   return (
     <header className={styles.Header}>
-      {aboutMeVisible && <AboutMe />}
       <Sidebar />
       <div className={styles.Header__background}>
         <Background height={1080} width={1920} />
       </div>
-      {!aboutMeVisible && <NavBar type="home" target={navRef} />}
-      <div className={styles.Header__wrapper}>
+      <NavBar type="home" target={navRef} />
+      <div className={styles.Header__wrapper} ref={textContainer}>
         <div className={styles.Header__title}>
           <div className={styles.innerCard} ref={titleCardRef} />
           <h1>Nuh Mohamed Ali</h1>
@@ -133,33 +91,27 @@ const Header = (): JSX.Element => {
           <button onClick={openAboutMe}>About me</button>
         </div>
       </div>
-      {!aboutMeVisible && (
-        <div className={styles.Header__links} ref={iconsRef}>
-          <FaTwitter className={styles.Header__links__twitter} />
-          <FaLinkedinIn className={styles.Header__links__linkedin} />
-          <FaGithub className={styles.Header__links__github} />
-          <SiUpwork className={styles.Header__links__upwork} />
-        </div>
-      )}
+      <div className={styles.Header__links} ref={iconsRef}>
+        <FaTwitter className={styles.Header__links__twitter} />
+        <FaLinkedinIn className={styles.Header__links__linkedin} />
+        <FaGithub className={styles.Header__links__github} />
+        <SiUpwork className={styles.Header__links__upwork} />
+      </div>
       <div
         className={styles.Header__container}
         onMouseEnter={bottomArrowMouseOver}
         onMouseLeave={bottomArrowMouseOut}
         onClick={navigateTo}
       />
-      
-        <img
-          src={"/arrow-down.svg"}
-          alt={"arrow pointing down"}
-          ref={arrowIconRef}
-          className={styles.Header__arrowDown}
-        />
+
+      <img
+        src={"/arrow-down.svg"}
+        alt={"arrow pointing down"}
+        ref={arrowIconRef}
+        className={styles.Header__arrowDown}
+      />
     </header>
   );
 };
 
 export default Header;
-function useNavigation() {
-  throw new Error("Function not implemented.");
-}
-

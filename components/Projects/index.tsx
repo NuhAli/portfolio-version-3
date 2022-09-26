@@ -1,9 +1,17 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "../../styles/Projects.module.scss";
 import Project from "../Project";
+import {data} from "./projectsData"
 
 const Projects = () => {
   const containerRef = useRef();
+
+  const renderProjects = () => {
+    return data.map(project => {
+      return <Project key={project.id} data={project} />
+    })
+  }
+
   return (
     <main className={styles.Main} id="projects">
       <div className={styles.Main__container}>
@@ -11,7 +19,7 @@ const Projects = () => {
             <h3>My Latest Projects</h3>
         </div>
         <div className={styles.Main__borderMiddle}/>
-        <Project />
+        {renderProjects()}
       </div>
     </main>
   );
