@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
+import "./index"
 import * as THREE from "three";
-import NET from "vanta/dist/vanta.net.min";
+import NET from "vanta/dist/vanta.net.min.js";
 import { BackgroundProps } from "../../types/background";
 
 export default function Background({ width, height, children }: BackgroundProps) {

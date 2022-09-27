@@ -36,7 +36,7 @@ const Home: NextPage = () => {
       <PageTransition />
       <Sidebar />
       <Projects />
-      <Footer />
+      <Footer backgroundColor={"#1d1a2d"}/>
     </div>
   );
 };

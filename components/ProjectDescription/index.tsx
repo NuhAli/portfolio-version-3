@@ -1,12 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useRef } from "react";
-import { gsap,Power2 } from "gsap";
+import { gsap, Power2 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "../../styles/ProjectDescription.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { Description } from "../../types/project";
 
-const ProjectDescription = () => {
+const ProjectDescription = ({
+  title,
+  subTitle,
+  body,
+  descriptionImage,
+  colors,
+  designImage,
+}: Description) => {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const colorAreaRef = useRef(null);
@@ -18,40 +26,58 @@ const ProjectDescription = () => {
       css: { top: 0, opacity: 1 },
       duration: 0.8,
       scrollTrigger: descriptionRef.current,
-      ease: Power2.easeInOut
+      ease: Power2.easeInOut,
     });
     gsap.to(descriptionRef.current, {
       css: { bottom: 0, opacity: 1 },
       duration: 0.8,
       scrollTrigger: descriptionRef.current,
-      ease: Power2.easeInOut
+      ease: Power2.easeInOut,
     });
     gsap.to(colorAreaRef.current, {
       css: { bottom: 0, opacity: 1 },
       delay: 0.3,
       duration: 0.8,
       scrollTrigger: colorAreaRef.current,
-      ease: Power2.easeInOut
+      ease: Power2.easeInOut,
     });
     gsap.to(designTitleRef.current, {
       css: { top: 0, opacity: 1 },
       duration: 0.8,
       scrollTrigger: designImageRef.current,
-      ease: Power2.easeInOut
+      ease: Power2.easeInOut,
     });
     gsap.to(designImageRef.current, {
       css: { bottom: 0, opacity: 1 },
       duration: 0.8,
       scrollTrigger: designImageRef.current,
-      ease: Power2.easeInOut
+      ease: Power2.easeInOut,
     });
   }, []);
+
+  const createMarkup = () => {
+    return { __html: body };
+  };
+
+  const renderColors = () => {
+    return colors.map((color, index) => {
+      return (
+        <div className={styles.ProjectDescription__color} key={index}>
+          <div
+            className={styles.ProjectDescription__color__black}
+            style={{ backgroundColor: color.color }}
+          />
+          <p>${`${color.name}`}</p>
+        </div>
+      );
+    });
+  };
 
   return (
     <section className={styles.ProjectDescription}>
       <div className={styles.ProjectDescription__container}>
         <div className={styles.ProjectDescription__title} ref={titleRef}>
-          <h3>Audiophile</h3>
+          <h3>{title}</h3>
           <h2>Description & Design</h2>
         </div>
         <div
@@ -59,21 +85,9 @@ const ProjectDescription = () => {
           ref={descriptionRef}
         >
           <div className={styles.ProjectDescription__textContainer}>
-            <h3>The power of sound.</h3>
+            <h3>{subTitle}</h3>
             <div className={styles.ProjectDescription__textContainer__border} />
-            <p>
-              An incredible project from
-              <Link href={"wwww.frontendmentors.com"}> Frontendmentors</Link>,
-              who provided all the figma designs and assets. I used this project
-              to practice my ability to translate designs into pixel perfect
-              websites that are viewable on all devices.
-              <br />
-              <br />
-              Some of the really exciting parts of this project was making it a
-              full stack application using an <span>Express</span> server and
-              <span> MySQL</span> database, I also used <span>Styled Components</span>
-              as my main styling tool for the first time in any of my projects.
-            </p>
+            <div dangerouslySetInnerHTML={createMarkup()} />
           </div>
           <div className={styles.ProjectDescription__description__image}>
             <img src="/audiophile-description.png" alt="audiophile" />
@@ -83,26 +97,7 @@ const ProjectDescription = () => {
           className={styles.ProjectDescription__colorContainer}
           ref={colorAreaRef}
         >
-          <div className={styles.ProjectDescription__color}>
-            <div className={styles.ProjectDescription__color__orange} />
-            <p>$orange</p>
-          </div>
-          <div className={styles.ProjectDescription__color}>
-            <div className={styles.ProjectDescription__color__fadedOrange} />
-            <p>$faded-orange</p>
-          </div>
-          <div className={styles.ProjectDescription__color}>
-            <div className={styles.ProjectDescription__color__black} />
-            <p>$black</p>
-          </div>
-          <div className={styles.ProjectDescription__color}>
-            <div className={styles.ProjectDescription__color__grey} />
-            <p>$grey</p>
-          </div>
-          <div className={styles.ProjectDescription__color}>
-            <div className={styles.ProjectDescription__color__white} />
-            <p>$white</p>
-          </div>
+          {renderColors()}
         </div>
         <div className={styles.ProjectDescription__designArea}>
           <div
@@ -116,10 +111,7 @@ const ProjectDescription = () => {
             className={styles.ProjectDescription__designArea__image}
             ref={designImageRef}
           >
-            <img
-              src={"/audiophile-design.png"}
-              alt={"audiophile design"}
-            />
+            <img src={designImage} alt={"audiophile design"} />
           </div>
         </div>
       </div>

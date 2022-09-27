@@ -2,24 +2,26 @@ import audiophileHero from "../../public/image-hero.webp"
 
 export const data = [
   {
-    id: "01",
+    id: 1,
     tilt: "left",
     title: "Audiophile E-Commerce Website",
     subTitle: "A fullstack React and Express application",
-    projectImage: "/public/image-hero.webp",
+    projectImage: "/image-hero.webp",
     role: "Frontend Develoepr",
     context: "Frontend Mentor Challenge",
     period: "2022",
-
+    backgroundColor: "#d87D4A",
+    backgroundColor1: "#0E0E0E",
     introduction: {
       description:
         "A self-sufficient settlement, where you can spend your time with no hurry or constraint. Tourists, who nowadays are more and more desirous to discover landscapes, scents and natural flavours, find in La Francesca the ideal place for a stay in all seasons.",
       projectLink: "https://audiophile-project-ajyn5ex9o-nuhali.vercel.app",
-      svgImage: ""
+      svgImage: "/pattern-circles.svg"
     },
     description: {
-      title: "audiophile",
-      subTitle: `
+      title: "Audiophile",
+      subTitle: "The power of sound",
+      body: `
             <p>
             An incredible project from
             <Link href={"wwww.frontendmentors.com"}> Frontendmentors</Link>,
@@ -34,7 +36,7 @@ export const data = [
             as my main styling tool for the first time in any of my projects.
           </p>
             `,
-        descriptionImage: "",
+        descriptionImage: "/audiophile-description.png",
         colors: [
             {name: "orange",color: "#d87D4A"},
             {name: "faded-orange",color: "#fbaf85"},
@@ -42,7 +44,7 @@ export const data = [
             {name: "grey",color: "#ededed"},
             {name: "white",color: "#fafafa"},
         ],
-        designImage: ""
+        designImage: "/audiophile-design.png"
     },
   },
 ];

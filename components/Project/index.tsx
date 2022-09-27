@@ -11,6 +11,9 @@ interface IProjectProps {
 }
 
 const Project = ({data}:IProjectProps) => {
+
+  const {id,title,subTitle} = data
+
   const initalCardRef = useRef(null);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
@@ -71,13 +74,10 @@ const Project = ({data}:IProjectProps) => {
           ref={imageRef}
         />
       </div>
-      <div className={styles.Project__projectNumber}>
-        <h3 ref={numberRef}>{data.id}</h3>
-      </div>
       <div className={styles.Project__textContainer} ref={textRef}>
-        <h3>{data.title}</h3>
-        <p>{data.subTitle}</p>
-        <Link href={"project"}>
+        <h3>{title}</h3>
+        <p>{subTitle}</p>
+        <Link href={`/projects/${id.toString()}`}>
           <button ref={buttonRef}>See Project</button>
         </Link>
       </div>

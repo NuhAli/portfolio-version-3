@@ -5,7 +5,23 @@ import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 import styles from "../../styles/ProjectHero.module.scss";
 import NavBar from "../NavBar";
 
-const ProjectHero = () => {
+interface IProjectHero {
+  title: string;
+  subTitle: string;
+  projectImage: string;
+  role: string;
+  context: string;
+  period: string;
+}
+
+const ProjectHero = ({
+  title,
+  subTitle,
+  projectImage,
+  role,
+  context,
+  period,
+}: IProjectHero) => {
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const projectNavRef = useRef(null);
   const titelRef = useRef(null);
@@ -37,18 +53,18 @@ const ProjectHero = () => {
   }, []);
 
   return (
-    <header className={styles.ProjectHero} id={"audiophile"}>
+    <header className={styles.ProjectHero} id={"top"}>
       <img src="/image-hero.webp" alt="project-hero" />
       <div className={styles.ProjectHero__container}>
         <div className={styles.ProjectHero__textContainer}>
           <NavBar type="project" target={projectNavRef} />
           <div>
             <div className={styles.ProjectHero__textContainer__title}>
-              <h1>Audiophile e-commerce website</h1>
+              <h1>{title}</h1>
               <div ref={titelRef} />
             </div>
             <div className={styles.ProjectHero__textContainer__subTitle}>
-              <h2>A full stack React and Express application</h2>
+              <h2>{subTitle}</h2>
               <div ref={subTitleRef} />
             </div>
           </div>
@@ -57,13 +73,13 @@ const ProjectHero = () => {
             ref={descriptionRef}
           >
             <p>
-              <span>Role</span> Frontend Develoepr
+              <span>Role</span> {role}
             </p>
             <p>
-              <span>Context</span> Frontend Mentor Challenge
+              <span>Context</span> {context}
             </p>
             <p>
-              <span>Period</span> 2022
+              <span>Period</span> {period}
             </p>
           </div>
         </div>

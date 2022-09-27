@@ -1,14 +1,16 @@
 import React, { useEffect, useRef } from "react";
 import styles from "../../styles/Projects.module.scss";
+import { ProjectType } from "../../types/project";
 import Project from "../Project";
 import {data} from "./projectsData"
 
 const Projects = () => {
+
   const containerRef = useRef();
 
   const renderProjects = () => {
-    return data.map(project => {
-      return <Project key={project.id} data={project} />
+    return data.map((project,index) => {
+      return <Project key={index} data={project as unknown as ProjectType} />
     })
   }
 

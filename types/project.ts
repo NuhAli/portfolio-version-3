@@ -1,5 +1,3 @@
-import { StaticImageData } from "next/image"
-
 export interface ProjectType {
     id: string
     tilt: string
@@ -9,6 +7,8 @@ export interface ProjectType {
     role: string
     context: string
     period: string
+    backgroundColor: string,
+    backgroundColor1: string,
     introduction: Introduction
     description: Description
   }
@@ -22,6 +22,7 @@ export interface ProjectType {
   export interface Description {
     title: string
     subTitle: string
+    body: string
     descriptionImage: string
     colors: Color[]
     designImage: string
