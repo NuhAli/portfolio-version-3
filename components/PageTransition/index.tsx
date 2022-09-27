@@ -6,7 +6,6 @@ import { IPageTransition } from "../../types/pageTransition";
 
 export const PageTransition = ({
   backgroundColor,
-  backgroundColor1,
 }: IPageTransition) => {
   const overlayRef = useRef(null);
   const underlayRef = useRef(null);
@@ -51,30 +50,31 @@ export const PageTransition = ({
   }, []);
 
   const renderSlides = () => {
-    if (backgroundColor !== "") {
-      <>
-        <section
-          style={{ backgroundColor }}
-          className={styles.GenericOverlay}
-          ref={overlayRef}
-        />
-        <section
-          style={{ backgroundColor: backgroundColor1 }}
-          className={styles.GenericUnderlay}
-          ref={underlayRef}
-        />
-      </>;
+    if (backgroundColor === undefined) {
+      return (
+        <>
+          <section className={styles.Underlay} ref={overlayRef} />
+          <section className={styles.Overlay} ref={underlayRef} />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <section
+            className={styles.Underlay}
+            ref={overlayRef}
+          />
+          <section
+            className={styles.GenericOverlay}
+            style={{ backgroundColor }}
+            ref={underlayRef}
+          />
+        </>
+      );
     }
-
-    return (
-      <>
-        <section className={styles.Underlay} ref={overlayRef} />
-        <section className={styles.Overlay} ref={underlayRef} />
-      </>
-    );
   };
 
-  return renderSlides()
+  return renderSlides();
 };
 
 export default PageTransition;

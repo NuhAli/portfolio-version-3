@@ -14,13 +14,18 @@ import { data } from "../../components/Projects/projectsData";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ProjectType } from "../../types/project";
 
-const Project = ({ project }: ProjectType) => {
+interface IProjectPageProps {
+  project: ProjectType
+}
+
+const Project = ({ project }: IProjectPageProps) => {
   const router = useRouter();
   const pageRef = useRef(null);
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [sidebarVisibile, setSidebarVisible] = useState(false);
 
   const { introduction, description } = project;
+  const footerColor = description.colors[0].color
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
@@ -37,7 +42,6 @@ const Project = ({ project }: ProjectType) => {
       <Sidebar />
       <PageTransition
         backgroundColor={project.backgroundColor}
-        backgroundColor1={project.backgroundColor1}
       />
       <ProjectHero
         title={project.title}
@@ -60,7 +64,7 @@ const Project = ({ project }: ProjectType) => {
         colors={description.colors}
         designImage={description.designImage}
       />
-      <Footer backgroundColor={description.colors[0].color}/>
+      <Footer backgroundColor={footerColor}/>
     </div>
   );
 };
