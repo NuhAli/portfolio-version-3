@@ -15,7 +15,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { ProjectType } from "../../types/project";
 
 interface IProjectPageProps {
-  project: ProjectType
+  project: ProjectType;
 }
 
 const Project = ({ project }: IProjectPageProps) => {
@@ -25,7 +25,7 @@ const Project = ({ project }: IProjectPageProps) => {
   const [sidebarVisibile, setSidebarVisible] = useState(false);
 
   const { introduction, description } = project;
-  const footerColor = description.colors[0].color
+  const accentColor = description.colors[0].color;
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
@@ -40,9 +40,7 @@ const Project = ({ project }: IProjectPageProps) => {
   return (
     <div className={styles.Container}>
       <Sidebar />
-      <PageTransition
-        backgroundColor={project.backgroundColor}
-      />
+      <PageTransition backgroundColor={project.backgroundColor} />
       <ProjectHero
         title={project.title}
         subTitle={project.subTitle}
@@ -50,11 +48,13 @@ const Project = ({ project }: IProjectPageProps) => {
         role={project.role}
         context={project.context}
         period={project.period}
+        backgroundColor={project.backgroundColor}
       />
       <ProjectIntroduction
         description={introduction.description}
         projectLink={introduction.projectLink}
         svgImage={introduction.svgImage}
+        color={accentColor}
       />
       <ProjectDescription
         title={description.title}
@@ -63,8 +63,10 @@ const Project = ({ project }: IProjectPageProps) => {
         descriptionImage={description.descriptionImage}
         colors={description.colors}
         designImage={description.designImage}
+        accentColor={accentColor}
+        designArea={description.designArea}
       />
-      <Footer backgroundColor={footerColor}/>
+      <Footer backgroundColor={accentColor} />
     </div>
   );
 };

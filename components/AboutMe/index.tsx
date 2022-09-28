@@ -13,6 +13,8 @@ import {
 } from "react-icons/si";
 import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 import ContactForm from "../ContactForm";
+import data from "./iconData";
+import { Icon } from "../Icon";
 
 const AboutMe = () => {
   const [visible, setVisible] = useState(false);
@@ -57,6 +59,12 @@ const AboutMe = () => {
       });
   };
 
+  const renderIcons = () => {
+    return data.map((item, index) => {
+      return <Icon key={index} name={item} />;
+    });
+  };
+
   return (
     <section className={styles.AboutMe} ref={containerRef}>
       <div className={styles.AboutMe__container}>
@@ -72,43 +80,14 @@ const AboutMe = () => {
               architecture and AWS cloud deployment. I work with the following
               technologies:
             </p>
-            <div className={styles.AboutMe__description__technology}>
-            <FaReact
-              className={styles.AboutMe__description__technology__react}
-            />
-            <SiJavascript
-              className={styles.AboutMe__description__technology__js}
-            />
-            <SiTypescript
-              className={styles.AboutMe__description__technology__ts}
-            />
-            <FaSass className={styles.AboutMe__description__technology__sass} />
-            <SiStyledcomponents
-              className={
-                styles.AboutMe__description__technology__styledComponents
-              }
-            />
-            <FaNodeJs
-              className={styles.AboutMe__description__technology__node}
-            />
-            <SiExpress
-              className={styles.AboutMe__description__technology__express}
-            />
-            <SiMysql
-              className={styles.AboutMe__description__technology__mySql}
-            />
-            <SiJest className={styles.AboutMe__description__technology__jest} />
-            <FaAws className={styles.AboutMe__description__technology__aws} />
-          </div>
+            <div className={styles.AboutMe__description__technology}>{renderIcons()}</div>
           </div>
         </div>
         <div ref={contactRef} className={styles.AboutMe__contact}>
           <FaTimes onClick={closeAboutMe} />
           <h2>Contact</h2>
           <div className={styles.AboutMe__contact__textArea}>
-            <h3>
-              I am open to all new freelance oppurtunities
-            </h3>
+            <h3>Want to work with me ?</h3>
           </div>
           <ContactForm />
         </div>

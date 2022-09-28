@@ -12,6 +12,7 @@ interface IProjectHero {
   role: string;
   context: string;
   period: string;
+  backgroundColor: string;
 }
 
 const ProjectHero = ({
@@ -21,6 +22,7 @@ const ProjectHero = ({
   role,
   context,
   period,
+  backgroundColor,
 }: IProjectHero) => {
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const projectNavRef = useRef(null);
@@ -61,11 +63,11 @@ const ProjectHero = ({
           <div>
             <div className={styles.ProjectHero__textContainer__title}>
               <h1>{title}</h1>
-              <div ref={titelRef} />
+              <div ref={titelRef} style={{ backgroundColor }} />
             </div>
             <div className={styles.ProjectHero__textContainer__subTitle}>
               <h2>{subTitle}</h2>
-              <div ref={subTitleRef} />
+              <div ref={subTitleRef} style={{ backgroundColor }} />
             </div>
           </div>
           <div
@@ -73,13 +75,13 @@ const ProjectHero = ({
             ref={descriptionRef}
           >
             <p>
-              <span>Role</span> {role}
+              <span style={{ color: backgroundColor }}>Role</span> {role}
             </p>
             <p>
-              <span>Context</span> {context}
+              <span style={{ color: backgroundColor }}>Context</span> {context}
             </p>
             <p>
-              <span>Period</span> {period}
+              <span style={{ color: backgroundColor }}>Period</span> {period}
             </p>
           </div>
         </div>

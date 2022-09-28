@@ -3,7 +3,6 @@
     width: 100vw;
     height: auto;
     padding: 3rem 2rem;
-    background-color: #d87D4A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +25,6 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: #d87D4A;
             }
 
             @media screen and (max-width: 792px) {
@@ -39,6 +37,7 @@
             font-size: 1.4rem;
             line-height: 1.7;
             transition: all 0.3s ease;
+            text-align: center;
             &__overCard {
                 content: "";
                 position: absolute;
@@ -46,7 +45,6 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: #d87D4A;
             }
             @media screen and (max-width: 375px) {
                 font-size: 1.2rem;
@@ -54,11 +52,14 @@
             }
         }
         img {
+            margin: auto;
             position: absolute;
-            top: 0;
+            top: 0px;
             bottom: 0;
-            left: 0;
+            left: 50px;
             z-index: 10;
+            height: 450px;
+            width: 450px;
         }
     }
 

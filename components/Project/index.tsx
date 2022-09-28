@@ -37,7 +37,7 @@ const Project = ({data}:IProjectProps) => {
   }, []);
 
   const onMouseOver = () => {
-    gsap.to(overlayRef.current, { css: { width: "100%" }, duration: 0.3 });
+    gsap.to(overlayRef.current, { css: { width: "100%" }, duration: 0.2 });
     gsap.to(imageRef.current, {
       scale: 1.1,
       duration: 0.1,
@@ -46,16 +46,24 @@ const Project = ({data}:IProjectProps) => {
       css: { opacity: 1, bottom: 0 },
       duration: 0.1,
     });
+    gsap.to(textRef.current, {
+      scale: 1.05,
+      duration: 0.1,
+    });
   };
 
   const onMouseOut = () => {
-    gsap.to(overlayRef.current, { css: { width: "0%" }, duration: 0.3 });
+    gsap.to(overlayRef.current, { css: { width: "0%" }, duration: 0.2 });
     gsap.to(imageRef.current, {
       scale: 1,
       duration: 0.1,
     });
     gsap.to(numberRef.current, {
       css: { opacity: 0, bottom: 50, color: "white" },
+      duration: 0.1,
+    });
+    gsap.to(textRef.current, {
+      scale: 1,
       duration: 0.1,
     });
   };

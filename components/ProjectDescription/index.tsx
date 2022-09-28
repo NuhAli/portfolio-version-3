@@ -3,8 +3,6 @@ import React, { useEffect, useRef } from "react";
 import { gsap, Power2 } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import styles from "../../styles/ProjectDescription.module.scss";
-import Image from "next/image";
-import Link from "next/link";
 import { Description } from "../../types/project";
 
 const ProjectDescription = ({
@@ -14,6 +12,8 @@ const ProjectDescription = ({
   descriptionImage,
   colors,
   designImage,
+  accentColor,
+  designArea,
 }: Description) => {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
@@ -78,7 +78,7 @@ const ProjectDescription = ({
       <div className={styles.ProjectDescription__container}>
         <div className={styles.ProjectDescription__title} ref={titleRef}>
           <h3>{title}</h3>
-          <h2>Description & Design</h2>
+          <h2 style={{ color: accentColor }}>Description & Design</h2>
         </div>
         <div
           className={styles.ProjectDescription__description}
@@ -90,7 +90,7 @@ const ProjectDescription = ({
             <div dangerouslySetInnerHTML={createMarkup()} />
           </div>
           <div className={styles.ProjectDescription__description__image}>
-            <img src="/audiophile-description.png" alt="audiophile" />
+            <img src={descriptionImage} alt="audiophile" />
           </div>
         </div>
         <div
@@ -99,21 +99,23 @@ const ProjectDescription = ({
         >
           {renderColors()}
         </div>
-        <div className={styles.ProjectDescription__designArea}>
-          <div
-            className={styles.ProjectDescription__designArea__titleArea}
-            ref={designTitleRef}
-          >
-            <h3>UI & Components</h3>
-            <h2>Design</h2>
+        {designArea && (
+          <div className={styles.ProjectDescription__designArea}>
+            <div
+              className={styles.ProjectDescription__designArea__titleArea}
+              ref={designTitleRef}
+            >
+              <h3>UI & Components</h3>
+              <h2 style={{ color: accentColor }}>Design</h2>
+            </div>
+            <div
+              className={styles.ProjectDescription__designArea__image}
+              ref={designImageRef}
+            >
+              <img src={designImage} alt={"audiophile design"} />
+            </div>
           </div>
-          <div
-            className={styles.ProjectDescription__designArea__image}
-            ref={designImageRef}
-          >
-            <img src={designImage} alt={"audiophile design"} />
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );

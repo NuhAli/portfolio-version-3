@@ -15,7 +15,6 @@ const NavBarLink = ({ label, to }: NavBarLinkProps) => {
   const hoverContainer = useRef(null);
 
   useEffect(() => {
-    console.log(router);
     aboutMeVisible$.subscribe((status) => {
       setAboutMeVisible(status);
     });
@@ -24,39 +23,42 @@ const NavBarLink = ({ label, to }: NavBarLinkProps) => {
   const mouseOver = () => {
     gsap.to(hoverContainer.current, {
       css: { width: "100%" },
-      delay: 0.15,
-      duration: 0.3,
+      duration: 0.1,
       ease: Power2.easeInOut,
     });
     gsap.to(hoverLineRed.current, {
       css: { width: "100%" },
-      duration: 0.3,
+      duration: 0.2,
+      delay: 0.1,
       ease: Power2.easeInOut,
     });
     gsap.to(hoverLineBlue.current, {
       css: { width: 0 },
-      duration: 0.3,
+      duration: 0.2,
+      delay: 0.11,
       ease: Power2.easeInOut,
     });
   };
 
   const mouseOut = () => {
-    gsap.to(hoverLineBlue.current, {
-      css: { width: "100%" },
-      duration: 0.3,
-      ease: Power2.easeInOut,
-    });
-    gsap.to(hoverLineRed.current, {
-      css: { width: 0 },
-      duration: 0.3,
-      ease: Power2.easeInOut,
-    });
-    gsap.to(hoverContainer.current, {
-      css: { width: 0 },
-      delay: 0.15,
-      duration: 0.3,
-      ease: Power2.easeInOut,
-    });
+    setTimeout(() => {
+      gsap.to(hoverLineBlue.current, {
+        css: { width: "100%" },
+        duration: 0.3,
+        ease: Power2.easeInOut,
+      });
+      gsap.to(hoverLineRed.current, {
+        css: { width: 0 },
+        duration: 0.3,
+        ease: Power2.easeInOut,
+      });
+      gsap.to(hoverContainer.current, {
+        css: { width: 0 },
+        delay: 0.15,
+        duration: 0.3,
+        ease: Power2.easeInOut,
+      });
+    },250)
   };
 
   const openAboutMe = () => {

@@ -22,7 +22,6 @@ export const PageTransition = ({
       delay: 0.7,
       ease: Power4.easeInOut,
     });
-    console.log("Reveal");
   };
 
   const pageCover = () => {
@@ -37,7 +36,6 @@ export const PageTransition = ({
       delay: 0.7,
       ease: Power4.easeInOut,
     });
-    console.log("Cover");
   };
 
   useEffect(() => {

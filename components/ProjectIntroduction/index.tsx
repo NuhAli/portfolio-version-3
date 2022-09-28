@@ -10,6 +10,7 @@ const ProjectIntroduction = ({
   description,
   projectLink,
   svgImage,
+  color,
 }: Introduction) => {
   const titleRef = useRef(null);
   const subTitleRef = useRef(null);
@@ -39,7 +40,10 @@ const ProjectIntroduction = ({
   }, []);
 
   return (
-    <div className={styles.ProjectIntroduction}>
+    <div
+      className={styles.ProjectIntroduction}
+      style={{ backgroundColor: color }}
+    >
       <div className={styles.ProjectIntroduction__textContainer}>
         <img src={svgImage} alt="project-svg" />
         <div className={styles.ProjectIntroduction__textContainer__title}>
@@ -49,6 +53,7 @@ const ProjectIntroduction = ({
               styles.ProjectIntroduction__textContainer__title__overCard
             }
             ref={titleRef}
+            style={{ backgroundColor: color }}
           />
         </div>
         <div className={styles.ProjectIntroduction__textContainer__description}>
@@ -58,6 +63,7 @@ const ProjectIntroduction = ({
               styles.ProjectIntroduction__textContainer__title__overCard
             }
             ref={subTitleRef}
+            style={{ backgroundColor: color }}
           />
         </div>
         <div className={styles.ProjectIntroduction__buttonContainer}>
