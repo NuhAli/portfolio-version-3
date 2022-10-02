@@ -14,7 +14,7 @@ export const data = [
     backgroundColor1: "#0E0E0E",
     introduction: {
       description:
-        "A self-sufficient settlement, where you can spend your time with no hurry or constraint. Tourists, who nowadays are more and more desirous to discover landscapes, scents and natural flavours, find in La Francesca the ideal place for a stay in all seasons.",
+        "Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.",
       projectLink: "https://audiophile-project-ajyn5ex9o-nuhali.vercel.app",
       svgImage: "/pattern-circles.svg",
     },
