@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 20;
 
   &__container {
     height: 100%;
@@ -39,12 +39,17 @@
 
   &__sideMenuIcons {
     position: fixed;
+    top: 20px;
+    right: 10px;
     font-size: 2rem;
     cursor: pointer;
     z-index: 99999;
     display: none;
     @media screen and (max-width: 768px) {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
     }
   }
 }
@@ -85,12 +90,17 @@
 
   &__sideMenuIcons {
     position: fixed;
+    top: 10px;
+    right: 20px;
     font-size: 2rem;
     cursor: pointer;
     z-index: 99999;
     display: none;
     @media screen and (max-width: 768px) {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
     }
   }
 }

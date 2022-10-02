@@ -32,7 +32,7 @@
             color: rgba(21, 21, 21, 0.6);
             font-style: italic;
             margin-bottom: 2rem;
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family: 'Roboto Slab', serif;
 
             @media screen and (max-width: 475px) {
                 font-size: 2rem;
@@ -68,6 +68,7 @@
         color: #212121;
         margin-top: 5rem;
         opacity: 0;
+        font-family: 'Roboto Slab', serif;
 
         &__image {
             height: auto;
@@ -104,7 +105,7 @@
             font-size: 2.5rem;
             letter-spacing: 1px;
             margin-bottom: 2rem;
-
+            font-family: 'Roboto Slab', serif;
             @media screen and (max-width: 475px) {
                 font-size: 2rem;
                 text-align: center;
@@ -193,6 +194,7 @@
         }
 
         p {
+            font-family: 'Roboto Slab', serif;
             margin-top: 2rem;
             font-size: 1.2rem;
             font-weight: 500;
@@ -279,7 +281,7 @@
                 color: rgba(21, 21, 21, 0.6);
                 font-style: italic;
                 margin-bottom: 2rem;
-                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-family: 'Roboto Slab', serif;
 
                 @media screen and (max-width: 475px) {
                     font-size: 2rem;

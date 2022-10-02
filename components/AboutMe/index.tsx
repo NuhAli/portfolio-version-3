@@ -67,29 +67,33 @@ const AboutMe = () => {
 
   return (
     <section className={styles.AboutMe} ref={containerRef}>
-      <div className={styles.AboutMe__container}>
-        <div ref={aboutRef} className={styles.AboutMe__description}>
-          <h2>About Me</h2>
-          <div className={styles.AboutMe__description__textArea}>
-            <p>
-              I am a commercially focused front end engineer with a passion for
-              digital innovation. I have worked on a range of projects both
-              commercially and personally ranging from websites, web
-              applications, Smart TV applications and have contributed to
-              creating an enterprise level monorepo with micro frontend
-              architecture and AWS cloud deployment. I work with the following
-              technologies:
-            </p>
-            <div className={styles.AboutMe__description__technology}>{renderIcons()}</div>
+      <div className={styles.AboutMe__background}>
+        <div className={styles.AboutMe__container}>
+          <div ref={aboutRef} className={styles.AboutMe__description}>
+            <h2>About Me</h2>
+            <div className={styles.AboutMe__description__textArea}>
+              <p>
+                I am a commercially focused front end engineer with a passion
+                for digital innovation. I have worked on a range of projects
+                both commercially and personally ranging from websites, web
+                applications, Smart TV applications and have contributed to
+                creating an enterprise level monorepo with micro frontend
+                architecture and AWS cloud deployment. I work with the following
+                technologies:
+              </p>
+              <div className={styles.AboutMe__description__technology}>
+                {renderIcons()}
+              </div>
+            </div>
           </div>
-        </div>
-        <div ref={contactRef} className={styles.AboutMe__contact}>
-          <FaTimes onClick={closeAboutMe} />
-          <h2>Contact</h2>
-          <div className={styles.AboutMe__contact__textArea}>
-            <h3>Want to work with me ?</h3>
+          <div ref={contactRef} className={styles.AboutMe__contact}>
+            <FaTimes onClick={closeAboutMe} />
+            <h2>Contact</h2>
+            <div className={styles.AboutMe__contact__textArea}>
+              <h3>Want to work with me ?</h3>
+            </div>
+            <ContactForm />
           </div>
-          <ContactForm />
         </div>
       </div>
     </section>

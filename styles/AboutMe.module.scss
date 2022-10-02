@@ -1,21 +1,28 @@
 .AboutMe {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
     z-index: 9999;
-
     @media screen and (max-width: 1200px) {
         min-height: auto;
     }
 
+    &__background {
+        height: 100%;
+        width: 100%;
+        background-color: rgba(24, 24, 27, 0.7);
+        padding-top: 5%;
+    }
+
     &__container {
-        margin: 5% auto auto auto;
+        overflow-y: hidden;
+        margin: 0 auto auto auto;
         max-width: 1450px;
         height: 790px;
         display: flex;
-        
+        z-index: 10001;
         @media screen and (max-width: 1200px) {
             flex-direction: column-reverse;
             max-width: 90%;

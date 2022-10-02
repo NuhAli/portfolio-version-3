@@ -14,12 +14,19 @@ interface NavBarProps {
   accentColor?: string;
 }
 
+
 const NavBar = ({ type, target, accentColor }: NavBarProps) => {
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [sideBarVisible, setSidebarVsibile] = useState(false);
   const sideBarRef = useRef(null);
   const navRef = useRef(null);
+
+  const sideBarIconBackgroundColor = {
+    backgroundColor: sideBarVisible ? "transparent": accentColor,
+    padding: "0.5rem",
+    borderRadius: "10px"
+  }
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
@@ -57,8 +64,8 @@ const NavBar = ({ type, target, accentColor }: NavBarProps) => {
     >
       <div className={styles.NavBar__container}>
         <ul className={styles.NavBar__links}>{renderNavLinks()}</ul>
-        <div className={styles.NavBar__sideMenuIcons}>
-          {clicked ? (
+        <div className={styles.NavBar__sideMenuIcons} style={sideBarIconBackgroundColor}>
+          {clicked && sideBarVisible ? (
             <FaTimes
               onClick={() => {
                 setClicked(false);
