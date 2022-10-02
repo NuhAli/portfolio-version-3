@@ -11,14 +11,15 @@ import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 interface NavBarProps {
   type: "home" | "project";
   target: MutableRefObject<null>;
+  accentColor?: string;
 }
 
-const NavBar = ({ type, target }: NavBarProps) => {
+const NavBar = ({ type, target, accentColor }: NavBarProps) => {
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [clicked, setClicked] = useState(false);
   const [sideBarVisible, setSidebarVsibile] = useState(false);
   const sideBarRef = useRef(null);
-  const navRef = useRef(null)
+  const navRef = useRef(null);
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
@@ -43,6 +44,7 @@ const NavBar = ({ type, target }: NavBarProps) => {
           key={index}
           label={item.label}
           to={item.to}
+          accentColor={accentColor}
         />
       );
     });
@@ -53,10 +55,8 @@ const NavBar = ({ type, target }: NavBarProps) => {
       className={type === "home" ? styles.NavBar : styles.NavBar__Project}
       ref={navRef}
     >
-       <div className={styles.NavBar__container}>
-        <ul className={styles.NavBar__links}>
-          {renderNavLinks()}
-        </ul>
+      <div className={styles.NavBar__container}>
+        <ul className={styles.NavBar__links}>{renderNavLinks()}</ul>
         <div className={styles.NavBar__sideMenuIcons}>
           {clicked ? (
             <FaTimes

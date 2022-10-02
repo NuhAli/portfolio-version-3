@@ -7,19 +7,17 @@ import Link from "next/link";
 import { ProjectType } from "../../types/project";
 
 interface IProjectProps {
-  data: ProjectType
+  data: ProjectType;
 }
 
-const Project = ({data}:IProjectProps) => {
-
-  const {id,title,subTitle} = data
+const Project = ({ data }: IProjectProps) => {
+  const { id, title, subTitle, tilt } = data;
 
   const initalCardRef = useRef(null);
   const overlayRef = useRef(null);
   const textRef = useRef(null);
-  const numberRef = useRef(null);
   const buttonRef = useRef(null);
-  const imageRef = useRef(null)
+  const imageRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -42,10 +40,6 @@ const Project = ({data}:IProjectProps) => {
       scale: 1.1,
       duration: 0.1,
     });
-    gsap.to(numberRef.current, {
-      css: { opacity: 1, bottom: 0 },
-      duration: 0.1,
-    });
     gsap.to(textRef.current, {
       scale: 1.05,
       duration: 0.1,
@@ -56,10 +50,6 @@ const Project = ({data}:IProjectProps) => {
     gsap.to(overlayRef.current, { css: { width: "0%" }, duration: 0.2 });
     gsap.to(imageRef.current, {
       scale: 1,
-      duration: 0.1,
-    });
-    gsap.to(numberRef.current, {
-      css: { opacity: 0, bottom: 50, color: "white" },
       duration: 0.1,
     });
     gsap.to(textRef.current, {
@@ -74,15 +64,21 @@ const Project = ({data}:IProjectProps) => {
       onMouseEnter={onMouseOver}
       onMouseLeave={onMouseOut}
     >
-      <div className={styles.Project__imageContainer}>
-        <img
-          className={styles.Project__image}
-          alt={"Project image"}
-          src={data.projectImage}
-          ref={imageRef}
-        />
-      </div>
-      <div className={styles.Project__textContainer} ref={textRef}>
+      <img
+        className={styles.Project__image}
+        alt={"Project image"}
+        src={data.projectImage}
+        ref={imageRef}
+      />
+      <div
+        className={styles.Project__textContainer}
+        style={
+          tilt === "left"
+            ? { alignItems: "flex-start" }
+            : { alignItems: "flex-end" }
+        }
+        ref={textRef}
+      >
         <h3>{title}</h3>
         <p>{subTitle}</p>
         <Link href={`/projects/${id.toString()}`}>

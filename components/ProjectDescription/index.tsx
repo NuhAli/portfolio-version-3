@@ -89,9 +89,7 @@ const ProjectDescription = ({
             <div className={styles.ProjectDescription__textContainer__border} />
             <div dangerouslySetInnerHTML={createMarkup()} />
           </div>
-          <div className={styles.ProjectDescription__description__image}>
-            <img src={descriptionImage} alt="audiophile" />
-          </div>
+          <img className={styles.ProjectDescription__description__image} src={descriptionImage} alt="audiophile" />
         </div>
         <div
           className={styles.ProjectDescription__colorContainer}

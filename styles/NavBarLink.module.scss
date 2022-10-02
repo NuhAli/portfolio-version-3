@@ -1,8 +1,12 @@
 .NavLink {
   position: relative;
+  align-items: center;
   font-size: 1.5rem;
   font-weight: bolder;
   margin-right: 4rem;
+  height: auto;
+  display: flex;
+  align-items: center;
   color: rgba(255, 255, 255, 1);
   cursor: pointer;
 
@@ -21,7 +25,7 @@
   bottom: -10px;
   display: flex;
   height: auto;
-  width: 0;
+  width: 100%;
   height: 5px;
   overflow: hidden;
 }
@@ -29,18 +33,7 @@
 .NavLink__hoverLine1 {
   top: 0;
   left: 0;
-  width: 150px;
-  height: 10px;
-  background: rgb(2, 56, 110);
-  background: linear-gradient(90deg, rgba(2, 56, 110, 1) 0%, rgba(0, 73, 141, 1) 35%, rgba(0, 82, 162, 1) 100%);
+  width: 0;
+  height: auto;
   z-index: 10;
-}
-
-.NavLink__hoverLine2 {
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 10px;
-  background: linear-gradient(270deg,#f06449,#ef3636);
-  z-index: 9;
 }

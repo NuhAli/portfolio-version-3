@@ -7,12 +7,10 @@ import styles from "../../styles/NavBarLink.module.scss";
 import aboutMeVisible$ from "../../observables/aboutMeVisible$";
 import { useRouter } from "next/router";
 
-const NavBarLink = ({ label, to }: NavBarLinkProps) => {
+const NavBarLink = ({ label, to, accentColor }: NavBarLinkProps) => {
   const router = useRouter();
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const hoverLineRed = useRef(null);
-  const hoverLineBlue = useRef(null);
-  const hoverContainer = useRef(null);
 
   useEffect(() => {
     aboutMeVisible$.subscribe((status) => {
@@ -21,44 +19,22 @@ const NavBarLink = ({ label, to }: NavBarLinkProps) => {
   }, []);
 
   const mouseOver = () => {
-    gsap.to(hoverContainer.current, {
-      css: { width: "100%" },
-      duration: 0.1,
-      ease: Power2.easeInOut,
-    });
     gsap.to(hoverLineRed.current, {
       css: { width: "100%" },
       duration: 0.2,
       delay: 0.1,
       ease: Power2.easeInOut,
     });
-    gsap.to(hoverLineBlue.current, {
-      css: { width: 0 },
-      duration: 0.2,
-      delay: 0.11,
-      ease: Power2.easeInOut,
-    });
   };
 
   const mouseOut = () => {
     setTimeout(() => {
-      gsap.to(hoverLineBlue.current, {
-        css: { width: "100%" },
-        duration: 0.3,
-        ease: Power2.easeInOut,
-      });
       gsap.to(hoverLineRed.current, {
         css: { width: 0 },
         duration: 0.3,
         ease: Power2.easeInOut,
       });
-      gsap.to(hoverContainer.current, {
-        css: { width: 0 },
-        delay: 0.15,
-        duration: 0.3,
-        ease: Power2.easeInOut,
-      });
-    },250)
+    }, 250);
   };
 
   const openAboutMe = () => {
@@ -72,9 +48,8 @@ const NavBarLink = ({ label, to }: NavBarLinkProps) => {
           <span onMouseOver={mouseOver} onMouseOut={mouseOut}>
             {label && label}
           </span>
-          <div ref={hoverContainer} className={styles.NavLink__hoverContainer}>
-            <div ref={hoverLineRed} className={styles.NavLink__hoverLine1} />
-            <div ref={hoverLineBlue} className={styles.NavLink__hoverLine2} />
+          <div className={styles.NavLink__hoverContainer}>
+            <div ref={hoverLineRed} className={styles.NavLink__hoverLine1} style={{ backgroundColor: accentColor }} />
           </div>
         </li>
       );
@@ -93,11 +68,9 @@ const NavBarLink = ({ label, to }: NavBarLinkProps) => {
               {label && label}
             </span>
             <div
-              ref={hoverContainer}
               className={styles.NavLink__hoverContainer}
             >
-              <div ref={hoverLineRed} className={styles.NavLink__hoverLine1} />
-              <div ref={hoverLineBlue} className={styles.NavLink__hoverLine2} />
+              <div ref={hoverLineRed} className={styles.NavLink__hoverLine1} style={{ backgroundColor: accentColor }} />
             </div>
           </li>
         </Link>

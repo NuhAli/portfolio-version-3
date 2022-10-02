@@ -18,14 +18,19 @@
     align-items: center;
     justify-content: flex-end;
     overflow-y: visible;
+    padding-right: 2rem;
   }
 
   &__links {
-    height: 80px;
+    height: 60px;
     display: flex;
     align-items: center;
     list-style: none;
     overflow-y: visible;
+
+    li {
+      display: inline-block;
+    }
 
     @media screen and (max-width: 768px) {
       display: none;
@@ -33,10 +38,11 @@
   }
 
   &__sideMenuIcons {
-    display: none;
-    margin-right: 2rem;
+    position: fixed;
     font-size: 2rem;
     cursor: pointer;
+    z-index: 99999;
+    display: none;
     @media screen and (max-width: 768px) {
       display: block;
     }
@@ -55,7 +61,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
 
   &__container {
     height: 100%;
@@ -64,6 +69,7 @@
     align-items: center;
     justify-content: flex-end;
     overflow-y: visible;
+    padding-right: 2rem;
   }
 
   &__links {
@@ -72,17 +78,17 @@
     align-items: center;
     list-style: none;
     overflow-y: visible;
-
     @media screen and (max-width: 768px) {
       display: none;
     }
   }
 
   &__sideMenuIcons {
-    display: none;
-    margin-right: 2rem;
+    position: fixed;
     font-size: 2rem;
     cursor: pointer;
+    z-index: 99999;
+    display: none;
     @media screen and (max-width: 768px) {
       display: block;
     }

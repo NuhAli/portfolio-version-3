@@ -19,8 +19,6 @@ export default function Background({ width, height, children }: BackgroundProps)
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
-            minHeight: 2000,
-            minWidth: 2560,
             scale: 1.00,
             scaleMobile: 1.00,
             color: 0xe6e2e3,
@@ -34,5 +32,5 @@ export default function Background({ width, height, children }: BackgroundProps)
       }
     }, [vantaEffect,theme]);
 
-  return <div style={{height,width}} ref={vantaRef}>{children}</div>;
+  return <div style={{height,width,position:'absolute',top: 0,left: 0}} ref={vantaRef}>{children}</div>;
 }

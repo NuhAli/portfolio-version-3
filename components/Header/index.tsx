@@ -70,13 +70,29 @@ const Header = (): JSX.Element => {
     router.push("/#projects");
   };
 
+  const navigateToTwitter = () => {
+    window.location.href = "https://twitter.com/NuhAli58506544"
+  }
+
+  const navigateToLinkedin = () => {
+    window.location.href = "https://www.linkedin.com/in/nuhali/"
+  }
+
+  const navigateToGit = () => {
+    window.location.href = "https://github.com/NuhAli"
+  }
+
+  const navigateUpwork = () => {
+    window.location.href = "https://www.upwork.com/freelancers/~0163c32ccf29894331"
+  }
+
   return (
     <header className={styles.Header}>
       <Sidebar />
       <div className={styles.Header__background}>
         <Background height={1080} width={1920} />
       </div>
-      <NavBar type="home" target={navRef} />
+      <NavBar type="home" target={navRef} accentColor={"#ef3636"} />
       <div className={styles.Header__wrapper} ref={textContainer}>
         <div className={styles.Header__title}>
           <div className={styles.innerCard} ref={titleCardRef} />
@@ -92,10 +108,10 @@ const Header = (): JSX.Element => {
         </div>
       </div>
       <div className={styles.Header__links} ref={iconsRef}>
-        <FaTwitter className={styles.Header__links__twitter} />
-        <FaLinkedinIn className={styles.Header__links__linkedin} />
-        <FaGithub className={styles.Header__links__github} />
-        <SiUpwork className={styles.Header__links__upwork} />
+        <FaTwitter onClick={navigateToTwitter} className={styles.Header__links__twitter} />
+        <FaLinkedinIn onClick={navigateToLinkedin} className={styles.Header__links__linkedin} />
+        <FaGithub onClick={navigateToGit} className={styles.Header__links__github} />
+        <SiUpwork onClick={navigateUpwork} className={styles.Header__links__upwork} />
       </div>
       <div
         className={styles.Header__container}

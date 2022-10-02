@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
-import { FaGithub, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaBars, FaGithub, FaLinkedinIn, FaTimes, FaTwitter } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { data } from "../NavBar/navBarData";
 import { projectNavData } from "../NavBar/projectNavData";
@@ -13,7 +13,7 @@ import { gsap, Power2, Power4 } from "gsap";
 const Sidebar = () => {
   const router = useRouter()
   const [sideBarVisible, setSidebarVsibile] = useState(false);
-
+  const [clicked, setClicked] = useState(false);
   const sideBarRef = useRef(null);
   const listRef = useRef(null);
   const sideBarAccentRef = useRef(null);
@@ -65,16 +65,32 @@ const Sidebar = () => {
     });
   };
 
+  const navigateToTwitter = () => {
+    window.location.href = "https://twitter.com/NuhAli58506544"
+  }
+
+  const navigateToLinkedin = () => {
+    window.location.href = "https://www.linkedin.com/in/nuhali/"
+  }
+
+  const navigateToGit = () => {
+    window.location.href = "https://github.com/NuhAli"
+  }
+
+  const navigateUpwork = () => {
+    window.location.href = "https://www.upwork.com/freelancers/~0163c32ccf29894331"
+  }
+
   return (
     <>
       <div className={styles.Sidebar_accent} ref={sideBarAccentRef} />
       <section className={styles.SidebarPage} ref={sideBarRef}>
         <ul ref={listRef} className={styles.SidebarPage__list}>{renderHomeLinks()}</ul>
         <div className={styles.SidebarPage__socials}>
-          <FaTwitter />
-          <FaLinkedinIn />
-          <FaGithub />
-          <SiUpwork />
+          <FaTwitter onClick={navigateToTwitter} />
+          <FaLinkedinIn onClick={navigateToGit} />
+          <FaGithub onClick={navigateToGit}/>
+          <SiUpwork onClick={navigateUpwork} />
         </div>
       </section>
     </>

@@ -56,10 +56,9 @@ const ProjectHero = ({
 
   return (
     <header className={styles.ProjectHero} id={"top"}>
-      <img src="/image-hero.webp" alt="project-hero" />
       <div className={styles.ProjectHero__container}>
         <div className={styles.ProjectHero__textContainer}>
-          <NavBar type="project" target={projectNavRef} />
+          <NavBar type="project" target={projectNavRef} accentColor={backgroundColor} />
           <div>
             <div className={styles.ProjectHero__textContainer__title}>
               <h1>{title}</h1>

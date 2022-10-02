@@ -7,7 +7,7 @@
     &__container {
         position: relative;
         margin: 0 auto;
-        padding: 10rem 0 3rem 0;
+        padding: 10rem 0 10rem 0;
         max-width: 1500px;
         min-height: 100vh;
         height: auto;
@@ -17,6 +17,10 @@
         flex-direction: column;
         border-left: 2px solid rgba($color: #242424, $alpha: 0.05);
         border-right: 2px solid rgba($color: #242424, $alpha: 0.05);
+
+        @media screen and (max-width: 620px) {
+            padding: 3rem;
+        }
     }
 
     &__borderMiddle {
@@ -40,7 +44,7 @@
             color: #242424;
 
             @media screen and (max-width: 620px) {
-                font-size: 3rem;
+                font-size: 2.5rem;
                 text-align: center;
             }
         }

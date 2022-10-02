@@ -58,8 +58,8 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
+                width: 110%;
+                height: 110%;
             }
         }
 
@@ -71,7 +71,6 @@
                 font-size: 2rem;
                 font-weight: 400;
                 font-style: italic;
-                text-transform: capitalize;
 
                 @media screen and (max-width: 1200px) {
                     font-size: 3vw;
@@ -90,8 +89,8 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
+                width: 110%;
+                height: 110%;
             }
         }
     }

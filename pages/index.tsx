@@ -24,6 +24,8 @@ const Home: NextPage = () => {
     sideBarVisible$.subscribe((status) => {
       setSidebarVisible(status);
     });
+
+    setSidebarVisible(false)
     gsap.to(pageRef.current, { duration: 0, css: { visibility: "visible" } });
   }, []);
 
