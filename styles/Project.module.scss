@@ -81,8 +81,8 @@
             }
 
 
-            @media screen and (max-width: 375px) {
-                font-size: 5.1vw;
+            @media screen and (max-width: 475px) {
+                font-size: 7vw;
             }
         }
 
@@ -103,8 +103,8 @@
                 margin: 2rem auto;
             }
 
-            @media screen and (max-width: 375px) {
-                font-size: 4.1vw;
+            @media screen and (max-width: 475px) {
+                font-size: 5vw;
             }
         }
 
@@ -182,5 +182,9 @@
 
     @media screen and (max-width: 1000px) {
         width: 90%;
+    }
+
+    @media screen and (max-width: 620px) {
+        width: 100%;
     }
 }

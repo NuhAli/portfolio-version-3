@@ -38,7 +38,7 @@ const Project = ({ project }: IProjectPageProps) => {
   }, []);
 
   return (
-    <div className={styles.Container}>
+    <div className={styles.Container} ref={pageRef}>
       <Sidebar />
       <PageTransition backgroundColor={project.backgroundColor} />
       <ProjectHero
