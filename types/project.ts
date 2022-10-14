@@ -1,3 +1,5 @@
+import { INavigationProps } from "./navigation";
+
 export interface ProjectType {
   id: string;
   tilt: string;
@@ -11,6 +13,7 @@ export interface ProjectType {
   backgroundColor1: string;
   introduction: Introduction;
   description: Description;
+  navigation: INavigationProps
 }
 
 export interface Introduction {

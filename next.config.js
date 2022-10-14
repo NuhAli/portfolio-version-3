@@ -5,10 +5,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
+    includePaths: [path.join(__dirname, "styles")],
   },
-}
+};
 
-const withTM = require('next-transpile-modules')(['gsap']);module.exports = withTM
+const withTM = require("next-transpile-modules")(["gsap"]);
 
-module.exports = [nextConfig]
+module.exports = withTM;
+
+module.exports = [nextConfig];

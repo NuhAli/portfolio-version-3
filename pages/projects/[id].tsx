@@ -13,13 +13,13 @@ import PageTransition from "../../components/PageTransition";
 import { data } from "../../components/Projects/projectsData";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ProjectType } from "../../types/project";
+import { ProjectNavigation } from "../../components/ProjectNavigation";
 
 interface IProjectPageProps {
   project: ProjectType;
 }
 
 const Project = ({ project }: IProjectPageProps) => {
-  const router = useRouter();
   const pageRef = useRef(null);
   const [aboutMeVisible, setAboutMeVisible] = useState(false);
   const [sidebarVisibile, setSidebarVisible] = useState(false);
@@ -65,6 +65,12 @@ const Project = ({ project }: IProjectPageProps) => {
         designImage={description.designImage}
         accentColor={accentColor}
         designArea={description.designArea}
+      />
+      <ProjectNavigation
+        type={project.navigation.type}
+        title={project.navigation.title}
+        accentColor={project.navigation.accentColor}
+        link={project.navigation.link}
       />
       <Footer backgroundColor={accentColor} />
     </div>

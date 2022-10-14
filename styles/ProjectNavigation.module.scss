@@ -1,0 +1,83 @@
+.Navigation {
+    width: 100vw;
+    height: 200px;
+    background-color: white;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.Navigation__hoverCard {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: rgb(2, 56, 110);
+    background: linear-gradient(90deg, rgba(2, 56, 110, 1) 0%, rgba(0, 73, 141, 1) 35%, rgba(0, 82, 162, 1) 100%);
+    z-index: 1;
+}
+
+.Navigation__hoverCardTop {
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    z-index: 2;
+}
+
+.Navigation__container {
+    width: 100%;
+    max-width: 1500px;
+    min-height: 20px;
+    height: auto;
+    max-height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+
+    svg {
+        fill: white;
+        font-size: 3rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        justify-content: space-around;
+    }
+}
+
+.Navigation__textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: auto;
+    width: auto;
+    z-index: 3;
+
+    p {
+        margin-bottom: 20px;
+        color: rgba(21, 21, 21, 0.6);
+        line-height: 1.3;
+        font-weight: 500;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    h3 {
+        color: black;
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 2rem;
+        font-family: 'Roboto Slab', serif;
+        margin-bottom: 0;
+        text-decoration: underline;
+    }
+}
